@@ -1,25 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Room from "./grid/Room";
+import RoombaContextProvider from "./contexts/RoombaContext";
+import MoveForwardControl from "./control/MoveForwardControl";
+import RotateRightControl from "./control/RotateRightControl";
+
+const size = 10;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RoombaContextProvider size={size}>
+      <MoveForwardControl></MoveForwardControl>
+      <RotateRightControl></RotateRightControl>
+      <Room size={size}></Room>
+    </RoombaContextProvider>
   );
 }
 
